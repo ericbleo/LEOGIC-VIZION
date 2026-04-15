@@ -1,0 +1,22 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "gdown": "^1.0.6",
+    "multer": "^2.0.1",
+    "nodemon": "^3.1.10",
+    "onnxruntime-node": "^1.22.0-rev",
+    "sharp": "^0.34.2"
+  }
+}
