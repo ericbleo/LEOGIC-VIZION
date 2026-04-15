@@ -1,0 +1,360 @@
+.detection-results {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.detection-results h3 {
+  margin: 0 0 20px;
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.detection-summary {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.detection-summary h4 {
+  margin: 0 0 15px;
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.detection-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.detection-summary li {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  border: 2px solid;
+  transition: all 0.3s ease;
+  user-select: none;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.detection-summary li:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detection-summary li.selected {
+  transform: translateY(-2px);
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  animation: selectedClassPulse 2s infinite;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.2);
+}
+
+@keyframes selectedClassPulse {
+  0% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.1) saturate(1.2);
+  }
+  100% {
+    filter: brightness(1) saturate(1);
+  }
+}
+
+.detection-summary .object-label {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.class-header {
+  margin: 20px 0;
+  padding: 10px 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.class-header h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.clear-selection {
+  background: none;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.clear-selection:hover {
+  background-color: rgba(255, 140, 0, 0.1);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.result-card {
+  border-radius: 8px;
+  padding: 12px;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.result-card:hover,
+.result-card:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.result-card.selected {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  animation: selectedCardPulse 2s infinite;
+}
+
+@keyframes selectedCardPulse {
+  0% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.1) saturate(1.2);
+  }
+  100% {
+    filter: brightness(1) saturate(1);
+  }
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.object-name {
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: capitalize;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  transition: all 0.3s ease;
+}
+
+.result-card.selected .object-name {
+  letter-spacing: 0.3px;
+}
+
+.confidence {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.result-card.selected .confidence {
+  padding: 5px 10px;
+  letter-spacing: 0.5px;
+}
+
+.detection-error {
+  text-align: center;
+  color: #dc3545;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.detection-error i {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.detection-loading {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 15px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .detection-results {
+    margin-top: 20px;
+    padding: 15px;
+  }
+
+  .detection-results h3 {
+    font-size: 20px;
+    margin: 0 0 15px;
+  }
+
+  .detection-summary {
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+
+  .detection-summary h4 {
+    font-size: 16px;
+  }
+
+  .detection-summary li {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .class-header {
+    margin: 15px 0;
+    padding: 8px 12px;
+  }
+
+  .class-header h4 {
+    font-size: 15px;
+  }
+
+  .clear-selection {
+    font-size: 13px;
+    padding: 4px 8px;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .result-card {
+    padding: 10px;
+  }
+
+  .object-name {
+    font-size: 15px;
+  }
+
+  .result-card.selected .confidence {
+    padding: 4px 8px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .detection-results {
+    margin-top: 15px;
+    padding: 10px;
+  }
+
+  .detection-summary {
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+
+  .detection-summary h4 {
+    font-size: 15px;
+  }
+
+  .detection-summary li {
+    font-size: 13px;
+    padding: 5px 8px;
+  }
+
+  .class-header {
+    margin: 12px 0;
+    padding: 6px 10px;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .class-header h4 {
+    font-size: 14px;
+  }
+
+  .clear-selection {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .result-card {
+    padding: 8px;
+  }
+
+  .object-name {
+    font-size: 14px;
+  }
+
+  .confidence {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+
+  .result-card.selected .confidence {
+    padding: 3px 7px;
+  }
+}
